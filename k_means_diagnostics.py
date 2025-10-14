@@ -31,9 +31,10 @@ df_scaled = scaler.fit_transform(df_num)
 # Use Elbow method to determine optimal number of clusters (k)
 from yellowbrick.cluster import KElbowVisualizer
 import matplotlib.pyplot as plt
+
 # Instantiate the clustering model and visualizer
 model = KMeans(random_state=42)
-visualizer = KElbowVisualizer(model, k=(2,10))
+visualizer = KElbowVisualizer(model, k=(2, 10))
 # Fit the data to the visualizer
 visualizer.fit(df_scaled)
 # Finalize and render the figure
@@ -46,6 +47,7 @@ plt.close()
 
 # Further evaluate the optimal number of clusters using Silhouette Analysis
 from yellowbrick.cluster import SilhouetteVisualizer
+
 # Create a KMeans instance with the suggested optimal number of clusters (i.e. 3)
 model = KMeans(n_clusters=3, random_state=42)
 # Create a SilhouetteVisualizer instance
@@ -61,12 +63,12 @@ plt.close()
 
 ####################################################
 # ##REVIEW OF INITIAL DIAGNOSTICS##
-# The Elbow Method plot suggests that the optimal number of clusters (k) is 4 despite the synthetic data 
-# being generated with 3 intentional clusters that match the "business logic". 
+# The Elbow Method plot suggests that the optimal number of clusters (k) is 4 despite the synthetic data
+# being generated with 3 intentional clusters that match the "business logic".
 # This maybe indicative of an unintentional sub-cluster within one of the original clusters.
 
-# The Silhouette Analysis plot for k=3 shows that all samples have a positive silhouette score. 
-# A score above 0.4 is generally considered decent for real-world data. 
+# The Silhouette Analysis plot for k=3 shows that all samples have a positive silhouette score.
+# A score above 0.4 is generally considered decent for real-world data.
 
 # NEXT STEPS
 # 1. Experiment with k=4 in the Silhouette Analysis to see if it improves the average silhouette score.
@@ -88,7 +90,7 @@ plt.savefig("silhouette_analysis_k4.png")
 plt.close()
 
 ###############################################
-# The Silhouette Analysis for k=4 shows a siignificant decrease in the average score to approximately 0.34 from 
+# The Silhouette Analysis for k=4 shows a siignificant decrease in the average score to approximately 0.34 from
 # 0.42 (with k=3). This suggests that k=3 is a better choice for this dataset, aligning with the original
 # data generation logic.
 # An intercluster distance map could be useful to further evaluate the cluster separation.
@@ -111,7 +113,6 @@ plt.close()
 # Intercluster Distance Map for k=3 shows that the clusters are distinct and well separated with no overlap.
 # The proportions reflect the original data generation logic.
 #################################################
-
 
 
 ## ELBOW METHOD FROM SCRATCH (WITHOUT YELLOWBRICK; PYTHON 3.12 COMPATIBLE))

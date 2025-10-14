@@ -1,5 +1,6 @@
 from data_generator import generate_synthetic_transit_data
 
+
 def test_data_generation():
     df = generate_synthetic_transit_data()
     assert len(df) == 500

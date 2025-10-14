@@ -91,8 +91,8 @@ def generate_synthetic_transit_data(num_entries=500):
     # Add a unique Trip ID
     df["Trip_ID"] = [f"T{i+1:04d}" for i in range(len(df))]
     # The f-string specifies starting with T followed by a number based on the row number.
-    # The formatting instructions (right of colon) ensure 4 characters (digits), 
-    # with any unused space padded with the character zero (0) 
+    # The formatting instructions (right of colon) ensure 4 characters (digits),
+    # with any unused space padded with the character zero (0)
 
     # Shuffle the rows so the clusters are mixed up and not sequential
     df = df.sample(frac=1).reset_index(drop=True)
@@ -110,8 +110,8 @@ if __name__ == "__main__":
     # You can save this file for easy use in your K-Means analysis
     transit_df.to_csv("synthetic_transit_data.csv", index=False)
 
-# The if __name__ == "__main__": defines the entry point of the script and prevents the code from running 
-# automatically when the file is imported elsewhere. 
+# The if __name__ == "__main__": defines the entry point of the script and prevents the code from running
+# automatically when the file is imported elsewhere.
 # For example, in another .py file, if I use "import data_generator", I then have to call the function directly
 # df = data_generator.generate_synthetic_transit_data(num_entries=300).
 # This occurs because in this .py file, __name__ == "data_generator" and not __main_ as occurs when working locally (in terminal)
