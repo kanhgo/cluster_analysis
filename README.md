@@ -1,3 +1,5 @@
+[![Notebook CI](https://github.com/kanhgo/cluster_analysis/actions/workflows/main.yml/badge.svg)](https://github.com/kanhgo/cluster_analysis/actions/workflows/main.yml)
+
 # cluster_analysis
 Application of k-means clustering to a synthetic dataset
 
