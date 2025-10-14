@@ -29,8 +29,13 @@ test_notebooks: $(OUTPUT_DIR)
 	done
 	@echo "--- All notebooks successfully executed and saved to $(OUTPUT_DIR)/ ---"
 
+# Clean up all generated files and directories
+clean:
+	@echo "--- Cleaning up generated files... ---"
+	rm -rf $(OUTPUT_DIR)
+
 test_ipynb: 
 	papermill k_means_diagnostics.ipynb /tmp/output.ipynb
 	papermill k_means_analysis.ipynb /tmp/output2.ipynb
 
-all: install lint test test_notebooks test_ipynb
+all: install lint test test_notebooks test_ipynb clean
