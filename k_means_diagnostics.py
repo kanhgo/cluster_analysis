@@ -10,7 +10,6 @@ WORKING WITH MULTIPLE PYTHON VERSIONS IN YOUR CODESPACE OR SERVER ENV
 """
 
 from sklearn.preprocessing import StandardScaler
-from sklearn.pipeline import make_pipeline
 from sklearn.cluster import KMeans
 import pandas as pd
 

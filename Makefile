@@ -34,8 +34,4 @@ clean:
 	@echo "--- Cleaning up generated files... ---"
 	rm -rf $(OUTPUT_DIR)
 
-test_ipynb: 
-	papermill k_means_diagnostics.ipynb /tmp/output.ipynb
-	papermill k_means_analysis.ipynb /tmp/output2.ipynb
-
-all: install lint test test_notebooks test_ipynb clean
+all: install lint test test_notebooks clean
