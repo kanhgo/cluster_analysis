@@ -1,4 +1,4 @@
-name: Notebook CI
+name: Cluster Analysis CI
 
 on:
   [push]
