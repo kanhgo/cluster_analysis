@@ -24,6 +24,8 @@ register-kernel:
 	# Installs the kernel specification for the current environment as 'python3'
 	# Note: ipykernel must be installed in the environment prior to this step.
 	python -m ipykernel install --user --name=python3 --display-name "Python 3"
+	# The python execution environment (kernel) must be explicitly registered or labeled using
+	# ipykernel in order for it to be located by Papermill and other jupyter tools
 
 # Target to execute all notebooks using Papermill for testing
 test_notebooks: $(OUTPUT_DIR)
