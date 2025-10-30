@@ -19,6 +19,12 @@ OUTPUT_DIR = executed_notebooks
 $(OUTPUT_DIR):
 	mkdir -p $(OUTPUT_DIR)
 
+register-kernel:
+	@echo "--- Registering ipykernel for Papermill ---"
+	# Installs the kernel specification for the current environment as 'python3'
+	# Note: ipykernel must be installed in the environment prior to this step.
+	python -m ipykernel install --user --name=python3 --display-name "Python 3"
+
 # Target to execute all notebooks using Papermill for testing
 test_notebooks: $(OUTPUT_DIR)
 	@echo "--- Batch executing all Jupyter notebooks... ---"
