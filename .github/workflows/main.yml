@@ -36,6 +36,10 @@ jobs:
       - name: Install dependencies
         run: |
           make install
+
+      - name: Register Jupyter Kernel
+        run: |
+          make register-kernel
       
       - name: Test notebook with Papermill
         # Use papermill to execute the notebook non-interactively.
@@ -47,7 +51,7 @@ jobs:
       - name: Clean up
         run: |
           make clean
-          
+        
   build:
     runs-on: ubuntu-latest
     steps:
